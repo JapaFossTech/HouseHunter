@@ -1,12 +1,14 @@
+using HouseHunter.Models;
 using HouseHunter.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 public class App
 {
     private readonly IListingService _listingService;
 
-    public App(IListingService listingService)
+    public App(IServiceProvider serviceProvider)
     {
-        _listingService = listingService;
+        _listingService = serviceProvider.GetRequiredService<IListingService>();
     }
 
     public async Task RunAsync()
@@ -15,14 +17,24 @@ public class App
 
         var listings = await _listingService.GetListingsAsync();
 
+        Console.WriteLine();
+        Console.WriteLine("Available Listings");
+        Console.WriteLine("------------------");
+
         foreach (var listing in listings)
         {
-            Console.WriteLine();
-            Console.WriteLine($"{listing.Address}, {listing.City}");
-            Console.WriteLine($"Price: {listing.Price:C}");
-            Console.WriteLine($"Bedrooms: {listing.Bedrooms}");
-            Console.WriteLine($"Bathrooms: {listing.Bathrooms}");
-            Console.WriteLine($"Square Feet: {listing.SquareFeet}");
+            DisplayListing(listing);
         }
+    }
+
+    private static void DisplayListing(HouseListing listing)
+    {
+        Console.WriteLine();
+        Console.WriteLine($"{listing.Address}");
+        Console.WriteLine($"{listing.City}");
+        Console.WriteLine($"Price: {listing.Price:C}");
+        Console.WriteLine($"Size: {listing.SquareFeet:N0} sq ft");
+        Console.WriteLine($"Price per sq ft: {listing.PricePerSquareFoot:C}");
+        Console.WriteLine($"Beds/Baths: {listing.Bedrooms} bed / {listing.Bathrooms} bath");
     }
 }

@@ -13,4 +13,6 @@ public class HouseListing
     public decimal Bathrooms { get; set; }
 
     public int SquareFeet { get; set; }
+
+    public decimal PricePerSquareFoot => SquareFeet == 0 ? 0 : Price / SquareFeet;
 }
