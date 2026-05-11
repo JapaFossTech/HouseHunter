@@ -57,6 +57,7 @@ public class App
         Console.WriteLine($"Size: {listing.SquareFeet:N0} sq ft");
         Console.WriteLine($"Price per sq ft: {listing.PricePerSquareFoot:C0}");
         Console.WriteLine($"Beds/Baths: {listing.Bedrooms} bed / {listing.Bathrooms} bath");
+        Console.WriteLine($"Score: {listing.Score:N1}");
     }
 
     private static string DisplayCurrency(decimal? value)

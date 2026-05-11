@@ -15,4 +15,6 @@ public class HouseListing
     public int SquareFeet { get; set; }
 
     public decimal PricePerSquareFoot => SquareFeet == 0 ? 0 : Price / SquareFeet;
+
+    public decimal Score { get; set; }
 }
