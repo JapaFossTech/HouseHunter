@@ -4,7 +4,7 @@ namespace HouseHunter.Services;
 
 public class ListingService : IListingService
 {
-    public Task<List<HouseListing>> GetListingsAsync()
+    public Task<List<HouseListing>> GetListingsAsync(ListingFilter filter)
     {
         var listings = new List<HouseListing>
         {
@@ -37,6 +37,13 @@ public class ListingService : IListingService
             }
         };
 
-        return Task.FromResult(listings);
+        var filteredListings = listings
+            .Where(listing => filter.MinPrice == null || listing.Price >= filter.MinPrice)
+            .Where(listing => filter.MaxPrice == null || listing.Price <= filter.MaxPrice)
+            .Where(listing => filter.MinBedrooms == null || listing.Bedrooms >= filter.MinBedrooms)
+            .Where(listing => filter.MaxPricePerSquareFoot == null || listing.PricePerSquareFoot <= filter.MaxPricePerSquareFoot)
+            .ToList();
+
+        return Task.FromResult(filteredListings);
     }
 }

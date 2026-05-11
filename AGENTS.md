@@ -24,3 +24,9 @@
 - Prefer constructor injection (IServiceProvider as input parameter)
 - Prefer async methods
 - Keep Program.cs minimal
+
+## Dependency Injection Preferences
+
+- Classes resolved from DI should receive IServiceProvider in constructor when requested
+- Resolve dependencies using GetRequiredService<T>()
+- Prefer minimal constructor parameters for orchestration classes
