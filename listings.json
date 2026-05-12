@@ -1,0 +1,42 @@
+[
+  {
+    "address": "123 Maple Street",
+    "city": "Springfield",
+    "price": 285000,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "squareFeet": 1650
+  },
+  {
+    "address": "456 Oak Avenue",
+    "city": "Riverton",
+    "price": 342500,
+    "bedrooms": 4,
+    "bathrooms": 2.5,
+    "squareFeet": 2150
+  },
+  {
+    "address": "789 Pine Lane",
+    "city": "Lakeside",
+    "price": 415000,
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "squareFeet": 2800
+  },
+  {
+    "address": "214 Cedar Court",
+    "city": "Brookfield",
+    "price": 365000,
+    "bedrooms": 4,
+    "bathrooms": 2,
+    "squareFeet": 2400
+  },
+  {
+    "address": "908 Birch Drive",
+    "city": "Fairview",
+    "price": 298000,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "squareFeet": 1900
+  }
+]
